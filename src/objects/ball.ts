@@ -3,6 +3,7 @@ import Rect from './rect';
 class Ball extends Rect {
   velX: number;
   velY: number;
+  speed = 100;
 
   constructor() {
     super(0, 0, 4, 4);
@@ -10,14 +11,14 @@ class Ball extends Rect {
   }
 
   reset() {
-    const dir = (Math.random() * 0.5 + 0.25) * Math.PI;
-    const speed = 100;
-
     this.x = 198;
     this.y = 198;
-
-    this.velX = Math.cos(dir) * speed;
-    this.velY = Math.sin(dir) * speed;
+    this.setDirection((Math.random() * 0.8 - 0.4) * Math.PI);
+  }
+  
+  setDirection(angle:number) {
+    this.velX = Math.sin(angle) * this.speed;
+    this.velY = -Math.cos(angle) * this.speed;  
   }
 
   update(dt: number) {
@@ -38,6 +39,10 @@ class Ball extends Rect {
       return true;
     }
     return false;
+  }
+
+  increaseSpeed(amount: number) {
+    this.speed += amount * 1;
   }
 }
 
