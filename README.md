@@ -1,5 +1,5 @@
-# atari-breakout
-An Atari Breakout game written in typescript
+# Atari Breakout
+An Atari Breakout game written in TypeScript.
 
 # Getting started
  - Clone this repository,
