@@ -1,0 +1,21 @@
+{
+  "name": "atari-breakout",
+  "version": "1.0.0",
+  "description": "Atari Bearkout game written in typescript",
+  "main": "index.js",
+  "author": "Benjamin Davies",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-loader": "^2.3.7",
+    "typescript": "^2.5.3",
+    "webpack": "^3.6.0"
+  },
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --open",
+    "watch": "webpack --watch"
+  },
+  "dependencies": {
+    "webpack-dev-server": "^2.9.1"
+  }
+}
