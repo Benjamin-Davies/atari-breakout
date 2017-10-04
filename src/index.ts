@@ -6,13 +6,11 @@ let score = 0, lives = 5;
 
 const canvas = document.createElement('canvas');
 document.body.appendChild(canvas);
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 if (!ctx)
-  throw 'could not initialize canvas context';
+  throw 'Could not initialize canvas context';
 
 function resize() {
-  if (!ctx) return;
-
   const unit = Math.min(
     window.innerWidth / vw,
     window.innerHeight / vh
@@ -31,7 +29,6 @@ const ball = new Ball();
 let lastDraw = 0;
 function draw() {
   requestAnimationFrame(draw);
-  if (!ctx) return;
 
   const thisDraw = performance.now() / 1000; // time in milliseconds
   const dt = thisDraw - lastDraw; // difference in time
