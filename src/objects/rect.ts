@@ -19,12 +19,10 @@ class Rect {
   }
 
   intersects(rect: Rect) {
-    const ax = [this.x, this.x + this.w].sort();
-    const ay = [this.y, this.y + this.h].sort();
-    const bx = [rect.x, rect.x + rect.w].sort();
-    const by = [rect.y, rect.y + rect.h].sort();
-    return ax[0] <= bx[1] && bx[0] <= ax[1]
-      && ay[0] <= by[1] && by[0] <= ay[1];
+    return this.x < rect.x + rect.w &&
+      this.x + this.w > rect.x &&
+      this.y < rect.y + rect.h &&
+      this.h + this.y > rect.y;
   }
 }
 

@@ -26,7 +26,7 @@ function resize() {
 
 const paddle = new Paddle();
 const ball = new Ball();
-const bricks = [] as Brick[];
+let bricks = [] as Brick[];
 
 let lastDraw = 0;
 function draw() {
@@ -45,9 +45,16 @@ function draw() {
     lives--;
     ball.reset();
   }
-
   if (bricks.length <= 0)
     spawnBricks(bricks);
+  bricks = bricks.map(brick => {
+    if (ball.bounceOff(brick)) {
+      score++;
+      // ball.increaseSpeed(brick.layer);
+      return null;
+    }
+    return brick;
+  }).filter(b => b) as Brick[];
 
   paddle.draw(ctx);
   ball.draw(ctx);

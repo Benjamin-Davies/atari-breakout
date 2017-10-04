@@ -11,7 +11,7 @@ class Brick extends Rect {
   layer: number;
 
   constructor(layer: number, x: number) {
-    super(x, 120 - 30 * layer, 50, 30, brickColors[layer]);
+    super(x + 5, 125 - 30 * layer, 40, 20, brickColors[layer]);
     this.layer = layer;
   }
 }
