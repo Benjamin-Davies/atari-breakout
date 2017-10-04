@@ -1,5 +1,6 @@
 import Paddle from './objects/paddle';
 import Ball from './objects/ball';
+import Brick, { spawnBricks } from './objects/brick';
 
 const vw = 400, vh = 300;
 let score = 0, lives = 5;
@@ -25,6 +26,7 @@ function resize() {
 
 const paddle = new Paddle();
 const ball = new Ball();
+const bricks = [] as Brick[];
 
 let lastDraw = 0;
 function draw() {
@@ -44,8 +46,12 @@ function draw() {
     ball.reset();
   }
 
+  if (bricks.length <= 0)
+    spawnBricks(bricks);
+
   paddle.draw(ctx);
   ball.draw(ctx);
+  bricks.forEach(brick => brick.draw(ctx));
   drawStatus(ctx);
 
   lastDraw = thisDraw;
