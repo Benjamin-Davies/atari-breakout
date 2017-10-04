@@ -6,7 +6,7 @@ class Paddle extends Rect {
   speed = 100;
 
   constructor() {
-    super(175, 270, 50, 2);
+    super(175, 270, 50, 5);
   }
 
   update(dt: number) {

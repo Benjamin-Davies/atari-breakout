@@ -31,7 +31,7 @@ function draw() {
   requestAnimationFrame(draw);
 
   const thisDraw = performance.now() / 1000; // time in milliseconds
-  const dt = thisDraw - lastDraw; // difference in time
+  const dt = Math.min(thisDraw - lastDraw, 0.05); // difference in time or 0.05s
 
   ctx.fillStyle = 'black';
   ctx.fillRect(0, 0, vw, vh);
