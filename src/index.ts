@@ -39,11 +39,23 @@ function draw() {
   paddle.update(dt);
   ball.update(dt);
   ball.bounceOff(paddle, true);
-  
+  if (ball.y > 300 - ball.h) {
+    lives--;
+    ball.reset();
+  }
+
   paddle.draw(ctx);
   ball.draw(ctx);
+  drawStatus(ctx);
 
   lastDraw = thisDraw;
+}
+
+function drawStatus(ctx: CanvasRenderingContext2D) {
+  ctx.font = '10px monospace';
+  ctx.fillStyle = 'white';
+  ctx.fillText(`Score: ${score}`, 5, 10);
+  ctx.fillText(`Lives: ${lives}`, 5, 20);
 }
 
 document.addEventListener('keydown', (e) => {
